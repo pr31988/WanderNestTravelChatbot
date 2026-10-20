@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/519202387430111524/a55ac8902a08425b9bdb7f13b27ea75d/artifacts
+end_time: 1792486006076
+entry_point_name: ''
+experiment_id: '519202387430111524'
+lifecycle_stage: active
+run_id: a55ac8902a08425b9bdb7f13b27ea75d
+run_name: document_ingestion
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1792485933844
+status: 3
+tags: []
+user_id: newuser

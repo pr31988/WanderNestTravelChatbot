@@ -17,7 +17,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
 # HINT: Data directory should point to "data"
-DATA_DIR = Path("../data") 
+DATA_DIR = Path(__file__).parent.parent / "data"  # HINT: Use Path(__file__).parent.parent / "data" to point to data folder
 
 
 class TravelDataLoader:

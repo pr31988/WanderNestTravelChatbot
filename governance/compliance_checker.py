@@ -31,7 +31,7 @@ class ComplianceChecker:
         is_compliant = True  # HINT: True 
         
         # HINT: Check for PII using Guardrail PII Detector
-        pii_result = self.pii_detector.check_pii(text)
+        pii_result = self.pii_detector.detect(text)
         
         detected_pii = []
         if pii_result['has_pii']:

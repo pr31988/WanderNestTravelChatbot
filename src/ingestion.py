@@ -47,7 +47,7 @@ def ingest_travel_documents():
     # MLflow Setup (fail-safe)
     # ====================
     mlflow_active = False
-    if Config.enable_mlflow:  
+    if Config.ENABLE_MLFLOW:  
         try:
             mlflow.set_experiment(Config.MLFLOW_EXPERIMENT_NAME)  
             mlflow.start_run(run_name="document_ingestion")
@@ -120,7 +120,7 @@ def ingest_travel_documents():
         # ====================
         print("\n🔍 Verifying index...")
         test_query = "What are the travel policies for international flights?"  # HINT: Test query
-        results, _ = engine.search(test_query, k=5) 
+        results = engine.search_by_text(test_query, k=5) 
 
         if results:
             print("✅ Index verification successful!")
@@ -134,7 +134,7 @@ def ingest_travel_documents():
 
     finally:
         if mlflow_active:
-            mlflow.active_run() 
+            mlflow.end_run()
 
     print("\n" + "=" * 70)
     print("🎉 Ingestion pipeline completed!\n")
