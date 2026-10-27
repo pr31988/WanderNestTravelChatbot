@@ -1,0 +1,5 @@
+Air India allows up to 4 churns in Economy per passenger for the same sector. After that the penalty is an ADM of US$10 for each additional churn, charged per passenger per segment.
+
+Note: ADMs carry an additional admin fee equal to 10.5% of the ADM value and, for ADMs issued in India, GST @18% is applied to both the ADM and the admin fee. Continued misuse can also lead to further actions (for example blocking access to inventory).
+
+Example (one extra churn): base ADM = US$10; admin fee = US$1.05 (10.5%); GST = 18% applied to both (US$1.80 on the ADM + US$0.189 on the admin fee) if issued in India.

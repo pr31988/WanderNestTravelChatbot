@@ -1,0 +1,4 @@
+For Economy Class, Air India allows up to 4 churns. After that, the penalty is US$10 per additional churn (charged per passenger per segment).
+
+Note: An admin fee of 10.5% of the ADM value is added to the ADM, and for ADMs issued in India GST @18% is applied to both the ADM and the admin fee. 
+Example: one extra churn → ADM US$10 + admin fee US$1.05 = US$11.05; GST 18% on US$11.05 ≈ US$1.99, so the total ≈ US$13.04 (if issued in India).

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/519202387430111524/0a74237140d3476fa4211617a095e1d3/artifacts
+end_time: 1793100616919
+entry_point_name: ''
+experiment_id: '519202387430111524'
+lifecycle_stage: active
+run_id: 0a74237140d3476fa4211617a095e1d3
+run_name: search_travel_info
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1793100615507
+status: 3
+tags: []
+user_id: newuser

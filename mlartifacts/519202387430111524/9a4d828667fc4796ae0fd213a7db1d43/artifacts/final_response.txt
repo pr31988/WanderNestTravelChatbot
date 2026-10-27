@@ -1,0 +1,6 @@
+Air India’s waiver says a purely domestic flight (not part of an international itinerary) must be rescheduled by more than 1 hour to qualify. 
+
+If you want to claim a refund under that waiver: the cancellation charge is waived, the agent can process the refund in the GDS, and you should add the waiver remark in the PNR/OSI in this format: 
+OSI: AI CANCEL / AI [flight#] / DDMMYY (e.g. AI CANCEL / AI 130 / 01NOV21). Also ensure the entire booking is cancelled to avail the full refund.
+
+If the domestic leg is connected to an international itinerary, the international timing rules (generally >3 hours) apply instead.

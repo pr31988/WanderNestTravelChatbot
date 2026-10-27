@@ -1,0 +1,9 @@
+Short answer: The DOT enforces COPPA for airlines. DOT’s Office of Aviation Consumer Protection (OACP) can investigate and take action (including civil penalties) when an airline unlawfully collects or mishandles personal information from children under 13 in violation of COPPA or DOT privacy rules.
+
+Additional details and practical guidance:
+- COPPA generally prohibits operators of websites from collecting personal information from children under 13 without verified parental consent; the FTC issues the implementing regulations.  
+- DOT enforces COPPA with respect to airlines; for ticket agents DOT shares jurisdiction with the Federal Trade Commission (FTC).  
+- If you believe an airline or ticket agent violated COPPA (or otherwise engaged in an unfair or deceptive privacy practice), you can file a privacy-related complaint with DOT’s OACP. If the issue involves a ticket agent you may also consider contacting the FTC.  
+- If your concern is about airline security procedures or border biometrics, those are handled by TSA or CBP respectively (separate authorities).
+
+If you’d like, I can help you draft a complaint or point you to the DOT OACP complaint page.

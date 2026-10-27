@@ -1,0 +1,7 @@
+Air India’s waiver says a domestic-only flight (not part of an international itinerary) that is rescheduled by more than 1 hour qualifies for the schedule-change waiver.
+
+If you want a full refund under that waiver: the cancellation charge is waived and the agent should add the OSI waiver remark in the PNR in this format:
+OSI: AI CANCEL / AI ### / DDMMYY
+(e.g. AI CANCEL / AI 130 / 01NOV21), ensure the entire booking is cancelled, and the agent can then process the refund on the GDS.
+
+If your itinerary is connected with an international segment or the change is different (e.g., international reschedules), other thresholds and rules apply (see the >3‑hour rule for many international changes).

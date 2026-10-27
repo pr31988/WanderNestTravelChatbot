@@ -1,0 +1,6 @@
+Under the DOT’s final rule, an international flight arrival time change is “significant” if the carrier’s revised itinerary schedules you to arrive at the destination airport six hours or more later than your original scheduled arrival time. 
+
+A few brief notes:
+- This standard applies to changes made by the carrier (14 CFR part 260).
+- Airlines may choose to use a shorter timeframe (e.g., 2–4 hours) but may not set a longer one than six hours for international arrivals.
+- The rule also treats other changes (different airport, more connections, downgrades, etc.) as significant in certain cases.

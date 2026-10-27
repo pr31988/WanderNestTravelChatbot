@@ -20,6 +20,10 @@ from ragas import evaluate
 from ragas.metrics import faithfulness, answer_relevancy, context_precision, context_recall
 from datasets import Dataset
 
+from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
+
 from src.search_engine import TravelSearchEngine
 from src.config import Config
 
@@ -35,7 +39,26 @@ class TravelChatbotEvaluator:
         # HINT: Initialize search engine and golden dataset path
         self.engine = TravelSearchEngine() 
         self.golden_dataset_path = Path("data") / "golden_dataset.json"  # HINT: "data", "golden_dataset.json"
-    
+        self.llm = LangchainLLMWrapper(
+                  AzureChatOpenAI(
+                        api_key=Config.AZURE_OPENAI_API_KEY,
+                        azure_endpoint=Config.AZURE_OPENAI_ENDPOINT,
+                        api_version=Config.AZURE_OPENAI_API_VERSION,
+                        deployment_name=Config.AZURE_OPENAI_DEPLOYMENT_NAME
+                   )
+                )
+                
+                # HINT: Initialize Azure OpenAI Embeddings
+                # Required params: api_key, azure_endpoint, azure_deployment, api_version
+        self.embeddings = LangchainEmbeddingsWrapper(
+                      AzureOpenAIEmbeddings(
+                        api_key=Config.AZURE_OPENAI_API_KEY,  
+                        azure_endpoint=Config.AZURE_OPENAI_ENDPOINT,  
+                        azure_deployment=Config.AZURE_OPENAI_EMBEDDING_DEPLOYMENT,  
+                        api_version=Config.AZURE_OPENAI_API_VERSION 
+                      )
+                    )
+        
     def load_golden_dataset(self) -> List[Dict]:
         """
         Load golden dataset for evaluation
@@ -106,13 +129,13 @@ class TravelChatbotEvaluator:
             
             try:
                 # HINT: Search for relevant documents
-                docs, _ = self.engine.search(question, k=5) 
+                docs, question = self.engine.search_by_text(question, k=5) 
                 
                 # HINT: Generate answer
-                answer = self.engine.generate_answer(docs, question)
+                answer = self.engine.synthesize_response(docs, question)
                 
                 # HINT: Collect contexts (retrieved documents)
-                context_texts = [doc.content for doc in docs]
+                context_texts = [doc.page_content for doc in docs]
                 
                 answers.append(answer)
                 contexts.append(context_texts)
@@ -140,7 +163,7 @@ class TravelChatbotEvaluator:
         logger.info("=" * 70)
         
         # HINT: Load golden dataset
-        golden_data = self._load_golden_dataset()  
+        golden_data = self.load_golden_dataset()  
         
         if not golden_data:
             logger.error("No evaluation data available")
@@ -150,7 +173,7 @@ class TravelChatbotEvaluator:
         
         # HINT: Extract questions and ground truths
         questions = [item["question"] for item in golden_data] 
-        ground_truths = [[item["ground_truth"]] for item in golden_data] 
+        ground_truths = [item["ground_truth"] for item in golden_data] 
         
         # HINT: Generate answers and contexts
         logger.info("\nGenerating responses...")
@@ -180,6 +203,8 @@ class TravelChatbotEvaluator:
                     context_precision,  # HINT: context_precision
                     context_recall   # HINT: context_recall
                 ],
+                llm=self.llm,  
+                embeddings=self.embeddings 
             )
             
             logger.info("\n" + "=" * 70)
@@ -198,6 +223,14 @@ class TravelChatbotEvaluator:
             return results
             
         except Exception as e:
+            logger.exception("Ragas evaluation failed")
+            print("Exception type:", type(e).__name__)
+            print("Exception details:", repr(e))
+
+            if hasattr(e, "response") and e.response is not None:
+                print("HTTP status:", e.response.status_code)
+                print("Response body:", e.response.text)
+
             logger.error(f"Ragas evaluation failed: {e}")
             logger.error("Make sure you have OPENAI_API_KEY set for Ragas to work")
             return None
@@ -237,7 +270,7 @@ class TravelChatbotEvaluator:
         """Run evaluation (sync wrapper)"""
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        return loop.run_until_complete(self._evaluate())
+        return loop.run_until_complete(self.run_ragas_evaluation())
 
 
 def run_evaluation():
@@ -247,7 +280,7 @@ def run_evaluation():
     HINT: Run evaluator and check if results pass thresholds
     """
     evaluator = TravelChatbotEvaluator()
-    results = evaluator._evaluate() 
+    results = evaluator.run() 
     
     if results:
         # HINT: Check if evaluation passes minimum thresholds

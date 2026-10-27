@@ -1,0 +1,7 @@
+Churning is when an agent makes repeated bookings for the same (or overlapping) sector for the same passenger — either within one PNR or across multiple PNRs — on the same GDS or across different GDSs. 
+
+Key points from Air India’s policy:
+- It covers repeated/overlapping sector bookings for the same passenger.  
+- Allowed thresholds: up to 4 churns in Economy; up to 10 in Premium.  
+- After the threshold, Air India charges an ADM of US$10 for each additional churn per passenger per segment.  
+- Churn is judged using parameters such as same origin, destination, passenger name and IATA code.

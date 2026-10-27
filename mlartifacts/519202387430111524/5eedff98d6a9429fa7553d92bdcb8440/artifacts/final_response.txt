@@ -1,0 +1,17 @@
+Short answer: Generally no — you must not change the name field on an Air India PNR through your GDS or the airline website once the PNR has been created. 
+
+What is allowed (exceptions and process)
+- For minor misspellings Air India may permit corrections on a case‑by‑case basis, but you must contact Air India Reservation offices (do not modify the PNR yourself).  
+- Corrections are limited to a maximum of three (3) characters and require supporting documents.  
+- Name corrections must be completed at least 72 hours before departure.  
+- If the ticket has already been issued, the airline’s required process is: create a new PNR in the correct name, issue a new ticket, cross‑reference both PNRs in endorsements to avoid ADMs, and follow airline helpdesk procedures if the original RBD is not available. The incorrect ticket may need to be refunded.
+
+Fees and regional notes
+- A nominal name‑change fee applies for POS in UK, Europe and Israel (UK £50, Europe €50, Israel $50) — check latest airline guidance for exact charges.
+
+What you should do now
+- Do not attempt to change or cancel/replace the name via GDS.  
+- Contact Air India Reservations immediately with the passenger’s ID/passport info and supporting documents.  
+- Be prepared for possible re‑issue, fare/RBD differences and applicable fees.
+
+If you’d like, I can draft a short message you can send to Air India Reservations with the passenger details and the exact misspelling to speed up the request.

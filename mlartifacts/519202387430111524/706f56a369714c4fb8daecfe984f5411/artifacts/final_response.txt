@@ -1,0 +1,5 @@
+Air India’s waiver says a domestic-only flight rescheduled by more than 1 hour qualifies for the waiver (i.e., cancellation charge waived and passenger eligible for full refund). This applies to domestic travel not connected to an international itinerary.
+
+If seeking the refund, the carrier’s instructions include adding the coupon remark/OSI like:
+OSI: AI CANCEL / AI ### / DDMMYY
+and ensuring the entire booking is cancelled so the agent can process the refund on the GDS.

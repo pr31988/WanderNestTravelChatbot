@@ -12,6 +12,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from langchain.messages import AIMessage
 import streamlit as st
 from src.search_engine import TravelSearchEngine
 from src.config import Config
@@ -55,7 +56,16 @@ def display_results(results, query_text, generated_response):
     st.subheader("💬 AI Response")  
     with st.container():
         st.markdown(f"**Query:** {query_text}")  
-    
+    if isinstance(generated_response, AIMessage):
+            response_text = generated_response.content
+    else:
+            response_text = generated_response
+
+    if isinstance(response_text, str):
+            st.markdown(response_text)
+    else:
+            st.write(response_text)
+            
     # HINT: Show Sources
     if results:
         with st.expander("📚 View Source Documents"):
@@ -145,14 +155,16 @@ if search_button and engine and query_text:
         
         try:
             # HINT: Search for relevant documents
+            print(f"# Searching for query: {query_text}")
             results, processed_query = engine.search_by_text(query_text, k=5)  # HINT: engine.search(query_text, k=5)
-            
+            print("Search completed")
+
             # HINT: Generate AI response
             generated_response = engine.synthesize_response(results, query_text)
 
             latency = time.time() - start_time
             st.info(f"✅ Search completed in {latency:.2f}s")
-            
+
             display_results(results, query_text, generated_response)
             
         except Exception as e:

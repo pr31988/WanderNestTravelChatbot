@@ -8,6 +8,8 @@ RUBRIC: Search Engine Implementation (13 marks total)
 
 TASK: Implement RAG search engine with governance integration
 """
+from urllib import response
+
 import mlflow
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
 from src.config import Config
@@ -37,7 +39,7 @@ class TravelSearchEngine:
             azure_endpoint=Config.AZURE_OPENAI_ENDPOINT,
             api_version=Config.AZURE_OPENAI_API_VERSION,
             deployment_name=Config.AZURE_OPENAI_DEPLOYMENT_NAME,
-            temperature= 0.2,  # HINT: Set temperature to 0.2 for more deterministic responses 
+            temperature= 1,  # HINT: Set temperature to 0.2 for more deterministic responses 
         )
         
         # HINT: Initialize Azure OpenAI Embeddings
@@ -84,7 +86,7 @@ class TravelSearchEngine:
             mlflow.log_param("query_text", query_text)  
             
             # HINT: Perform similarity search on vector store
-            docs = self.vector_store.similarity_search(query_text, k=k) 
+            docs = self.vector_store.similarity_search(query=query_text, k=k) 
             
             # HINT: Log metric for number of results
             mlflow.log_metric("results_count", len(docs))
@@ -135,14 +137,15 @@ class TravelSearchEngine:
             
             # HINT: Generate response using LLM
             response = self.llm.invoke(prompt)
-            
+            response_text = response.content
+
             # HINT: Validate output using governance gate
-            gov_check = self.governance_gate.validate_output(response)
+            gov_check = self.governance_gate.validate_output(response_text)
             
             if not gov_check['passed']:  
                 return "I generated a response but it didn't pass safety checks. Please rephrase your question."  # HINT: "I generated a response but it didn't pass safety checks. Please rephrase your question."
-            
             # HINT: Log response to MLflow as text file
-            mlflow.log_text(response, "final_response.txt")
-            
-            return response
+            mlflow.log_text(response_text, "final_response.txt")
+
+            #return response
+            return response_text  # HINT: Return the content of the response

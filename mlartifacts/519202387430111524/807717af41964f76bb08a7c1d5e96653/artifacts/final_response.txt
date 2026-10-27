@@ -1,0 +1,3 @@
+Under the DOT rule, a change that causes an international itinerary to arrive at the destination airport six hours or more later than the original scheduled arrival time is considered a "significant change."  
+
+(For context, the DOT uses a unified standard of three hours for domestic flights and six hours for international flights; airlines may offer shorter thresholds but may not set a longer one.)

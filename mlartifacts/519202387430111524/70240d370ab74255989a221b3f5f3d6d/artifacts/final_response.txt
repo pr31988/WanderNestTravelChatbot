@@ -1,0 +1,9 @@
+Air India’s waiver says a domestic-only flight (not connected to an international itinerary) that is rescheduled by more than 1 hour qualifies for the waiver (i.e., eligible for reissue/waiver/refund treatment).
+
+A few practical notes from the policy:
+- This applies only to purely domestic sectors (e.g., BOM–GOI, DEL–IXC) not linked to an international ticket.  
+- Date/flight change charges are waived and the passenger should be rebooked on the first available flight.  
+- If you want a full refund, ensure the entire booking is cancelled and an agent can process the refund on the GDS. The policy shows adding an OSI/coupon remark for cancellations in the format:
+  OSI : AI CANCEL / AI ### / DDMMYY
+
+If you’d like, I can help check eligibility for a specific booking or draft the OSI text you should use.
