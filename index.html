@@ -13,11 +13,11 @@
       import { mount } from "https://jsdelivr.net";
       mount(
         {
-          requirements: ["pandas", "numpy"], // Add your PyPI packages here
-          entrypoint: "src/app.py",
+          requirements: ["pandas"], // Add your PyPI packages here
+          entrypoint: "src/test_app.py",
           files: {
             "src/app.py": {
-              url: "./src/app.py",
+              url: "./src/test_app.py",
             },
             // Add any other helper files or local datasets your app imports.
             // "src/utils.py": { url: "./src/utils.py" },
